@@ -1,0 +1,259 @@
+<!-- <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат-поддержка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        #chat-box {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #chat-log {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding-right: 5px;
+        }
+
+        #chat-log p {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .user-message {
+            background-color: #007bff;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: #f1f1f1;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        #user-input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 55px);
+            box-sizing: border-box;
+        }
+
+        #send-button {
+            padding: 8px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-box">
+        <div id="chat-log"></div>
+        <div style="display: flex;">
+            <input type="text" id="user-input" placeholder="Напишите сообщение..." onkeypress="handleKeyPress(event)">
+            <button id="send-button" onclick="sendMessage()">Отправить</button>
+        </div>
+    </div>
+
+    <script>
+        const responses = {
+            "привет": "Здравствуйте! Чем могу помочь?",
+            "как дела": "Спасибо, что спросили! Я здесь, чтобы помочь вам.",
+            "что ты умеешь": "Я могу ответить на ваши вопросы и помочь вам с информацией.",
+            "помощь": "Вы можете задать мне вопросы по работе сайта или оставить заявку в поддержку.",
+            "спасибо": "Пожалуйста! Рад был помочь.",
+            "кто ты": "Я бот как и ты"
+        };
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById("user-input").value.trim();
+            if (userInput === "") return;
+
+            displayMessage(userInput, "user-message");
+            document.getElementById("user-input").value = "";
+
+            setTimeout(() => {
+                const botResponse = getBotResponse(userInput.toLowerCase());
+                displayMessage(botResponse, "bot-message");
+            }, 500);
+        }
+
+        function displayMessage(message, className) {
+            const messageElement = document.createElement("p");
+            messageElement.textContent = message;
+            messageElement.classList.add(className);
+            document.getElementById("chat-log").appendChild(messageElement);
+            messageElement.scrollIntoView();
+        }
+
+        function getBotResponse(input) {
+            return responses[input] || "Извините, я пока не понимаю этот запрос. Попробуйте спросить что-то другое.";
+        }
+    </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Темная и светлая тема</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .dark-mode {
+            background-color: #333;
+            color: #f8f8f8;
+        }
+
+        .light-mode {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <button onclick="toggleTheme()">Переключить тему</button>
+    <h1>Тема</h1>
+    <p>Переключитесь между светлой и темной темами.</p>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кнопки Лайк, Дизлайк и Поделиться</title>
+  <style>
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .like-dislike-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    #like-button {
+      background-color: #28a745;
+    }
+
+    #dislike-button {
+      background-color: #dc3545;
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .share-btn {
+      padding: 8px 15px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .share-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-buttons">
+    Кнопка Лайк -->
+    <!-- <button id="like-button" class="like-dislike-btn">
+      👍 Лайк
+    </button> -->
+
+    <!-- Кнопка Дизлайк -->
+    <!-- <button id="dislike-button" class="like-dislike-btn">
+      👎 Дизлайк
+    </button>
+  </div> -->
+
+  <!-- Кнопки Поделиться -->
+  <!-- <div class="share-buttons">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank" class="share-btn">
+      Поделиться на Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https://example.com&text=Посмотрите это!" target="_blank" class="share-btn">
+      Поделиться в Twitter
+    </a>
+    <a href="https://api.whatsapp.com/send?text=Посмотрите это! https://example.com" target="_blank" class="share-btn">
+      Поделиться в WhatsApp
+    </a>
+  </div>
+
+  <script>
+    let likeCount = 0;
+    let dislikeCount = 0;
+
+    document.getElementById('like-button').addEventListener('click', function() {
+      likeCount++;
+      alert(`Лайков: ${likeCount}`);
+    });
+
+    document.getElementById('dislike-button').addEventListener('click', function() {
+      dislikeCount++;
+      alert(`Дизлайков: ${dislikeCount}`);
+    });
+  </script> -->
+
+<!-- </body>
+</html> -->

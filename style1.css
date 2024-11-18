@@ -1,0 +1,355 @@
+*   {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+  font-family: "RobotoCondensed";
+  src: local("RobotoCondensed"), url("fonts2/RobotoCondensed-BlackItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "RobotoCondensed";
+  src: local("RobotoCondensed"), url("fonts2/RobotoCondensed-Light.ttf") format("truetype");
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: "RobotoCondensed";
+  src: local("RobotoCondensed"), url("fonts2/RobotoCondensed-Bold.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+}
+body {
+  font-family:"RobotoCondensed",serif;
+  background-color: #1A0134;
+  margin: 0;
+  padding: 0; 
+}
+
+.header {
+    background-color: #1A0134;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+.container {
+    display: flex;
+    align-items: center;
+    gap: 53px;
+    width: 100%;
+}
+.container-title {
+    margin-left: 2%;
+}
+.chat-container {
+  display: flex;
+  width: 80%;
+  height: 90vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  width: 25%;
+  background-color: #2a2f32;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px;
+}
+
+.contact {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #3b3f42;
+  cursor: pointer;
+}
+
+.contact:hover {
+  background-color: #4a4f53;
+}
+
+.chat-section {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.chat-header {
+  background-color: #075e54;
+  color: #fff;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.message-container {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 60%;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.message-input {
+  display: flex;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.message-input button {
+  padding: 10px 20px;
+  background-color: #075e54;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message-input button:hover {
+  background-color: #0a6848;
+}
+/* Настройки шестеренки */
+.settings-icon {
+font-size: 24px;
+cursor: pointer;
+border: none;
+background: none;
+color: #333;
+margin-left: auto;
+}
+
+/* Модальное окно */
+.modal {
+display: none; 
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+justify-content: center;
+align-items: center;
+}
+
+.modal-content {
+background-color: white;
+padding: 20px;
+border-radius: 5px;
+width: 300px;
+text-align: center;
+position: relative;
+}
+
+.close {
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+font-size: 20px;
+}
+
+.menu-container {
+  position: absolute;
+  top: 45px;   /* Опускаем гамбургер вниз */
+  right: 35px; /* Передвигаем гамбургер вправо */
+}
+
+/* Кнопка гамбургер */
+.menu-btn {
+  position: relative;
+  width: 35px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.menu-btn-burger {
+  width: 35px;
+  height: 4px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn-burger::before,
+.menu-btn-burger::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 4px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn-burger::before {
+  transform: translateY(-10px);
+}
+
+.menu-btn-burger::after {
+  transform: translateY(10px);
+}
+
+/* Меню */
+/* Меню */
+.menu {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 50px; /* Расположение под гамбургером */
+  background-color: white;
+  width: 200px;
+  box-shadow: 0 8px 16px rgba(134, 134, 134, 0.2);
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+
+.menu.active {
+  opacity: 1;
+  max-height: 500px; /* Нужная вам высота */
+  transform: translateX(0);
+  
+}
+
+/* Стили для списка меню */
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  border-bottom: 1px solid #ddd;
+}
+
+.menu ul li a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.menu ul li a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu {
+  display: none;
+  left: 100%; /* Расположение подменю справа от родительского элемента */
+  top: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu ul li a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu ul li a:hover {
+  background-color: #ddd;
+}
+
+/* Показываем выпадающее меню при наведении */
+.menu ul li:hover .dropdown-menu {
+  display: block;
+}
+
+/* Анимации открытия */
+.menu-container.open .menu {
+  opacity: 1;
+  max-height: 500px;
+  transform: translateY(0);
+}
+
+/* Анимация гамбургер-иконки в крестик */
+.menu-container.open .menu-btn-burger {
+  transform: rotate(45deg);
+}
+
+.menu-container.open .menu-btn-burger::before {
+  transform: rotate(-90deg) translateX(-10px);
+}
+
+.menu-container.open .menu-btn-burger::after {
+  transform: rotate(-90deg) translateX(-10px);
+  opacity: 0;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+#chatForm {
+    margin-top: 1rem;
+}
+
+#chatForm input {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+#chatForm button {
+    padding: 0.5rem 1rem;
+}
+
+#chatMessages {
+    margin-top: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #eaeaea;
+    padding: 0.5rem;
+    border-radius: 5px;
+}

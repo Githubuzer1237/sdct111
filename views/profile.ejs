@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h2>Личный кабинет</h2>
+    <p>Имя пользователя: <%= profile.username %></p>
+    <p>Email: <%= profile.email %></p>
+    <p>Год рождения: <%= profile.birth_year %></p>
+    <p>Страна: <%= profile.country %></p>
+    <p>Роль: <%= profile.role %></p>
+
+    <h3>Обновить профиль</h3>
+    <form action="/profile/update" method="post">
+        <label>Год рождения: <input type="text" name="birth_year" value="<%= profile.birth_year %>"></label><br>
+        <label>Скрыть год рождения: <input type="checkbox" name="birth_year_private" <%= profile.birth_year_private ? 'checked' : '' %>></label><br>
+        <label>Страна: <input type="text" name="country" value="<%= profile.country %>"></label><br>
+        <label>Скрыть страну: <input type="checkbox" name="country_private" <%= profile.country_private ? 'checked' : '' %>></label><br>
+        <button type="submit">Обновить</button>
+    </form>
+</body>
+</html>

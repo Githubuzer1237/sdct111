@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDCT</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="shortcut icon" href="./image/icons/sdct.PNG">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="container-title">StuDent ChaT</h1>
+        </div>
+        
+        <div class="menu-container" id="menu-container">
+          <div class="menu-btn">
+            <div class="menu-btn-burger"></div>
+          </div>
+          <nav class="menu" id="menu">
+            <ul>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="group.html">Группа</a></li>
+              <li><a href="news.html">Новости</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="#">Все новости</a></li>
+                            <li><a href="#">Общество</a></li>
+                            <li><a href="#">Технологии</a></li>
+                            <li><a href="#">Культура</a></li>
+                            <li><a href="#">Спорт</a></li>
+                        </ul>
+                    </div>
+              </li>
+              <li><a href="teacher.html">Учителя</a></li>
+              <li><a href="account.html">Регистрация/Войти</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+    <main>
+        <div class="chat-container">
+            <aside class="sidebar">
+              <h2>Контакты</h2>
+              <ul id="contactList">
+                <li class="contact">Группа 1</li>
+                <li class="contact">Группа 2</li>
+                <li class="contact">Группа 3</li>
+              </ul>
+            </aside>
+            <section class="chat-section">
+              <header class="chat-header">
+                <h2 id="chatTitle">Группа 1</h2>
+                <!-- Иконка шестеренки для настроек -->
+                <button id="settingsButton" class="settings-icon">⚙️</button>
+              </header>
+              <div id="messageContainer" class="message-container"></div>
+              <div class="message-input">
+                <input type="text" id="messageInput" placeholder="Введите сообщение...">
+                <button id="sendMessageBtn">Отправить</button>
+              </div>
+            </section>
+          </div>
+        
+          <!-- Модальное окно настроек -->
+          <div id="settingsModal" class="modal">
+            <div class="modal-content">
+              <span id="closeModal" class="close">&times;</span>
+              <h3>Настройки группы</h3>
+              
+              <!-- Выбор статуса группы -->
+              <label for="groupStatus">Тип группы:</label>
+              <select id="groupStatus">
+                <option value="public">Публичная</option>
+                <option value="private">Частная</option>
+              </select>
+        
+              <!-- Изменение цвета темы -->
+              <label for="groupColor">Цвет темы:</label>
+              <input type="color" id="groupColor" value="#ffffff">
+        
+              <!-- Привилегии участников -->
+              <label for="privilege">Привилегии:</label>
+              <select id="privilege">
+                <option value="student">Student</option>
+                <option value="university">University</option>
+                <option value="school">School</option>
+              </select>
+        
+              <!-- Загрузка изображения профиля -->
+              <label for="profilePicture">Изображение профиля:</label>
+              <input type="file" id="profilePicture" accept="image/*">
+              <button id="saveSettings">Сохранить настройки</button>
+            </div>
+          </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script1.js"></script>
+    <script src="script3.js"></script>
+</body>
+</html>
