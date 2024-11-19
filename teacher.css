@@ -1,0 +1,183 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('fonts2/Roboto-BlackItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('fonts2/Roboto-Light.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('fonts2/Roboto-Bold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', serif;
+  box-sizing: border-box;
+}
+
+.container-1 {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* background-color: #1A0134; */
+.header {
+  padding-top: 30px;
+ .links {
+  display: flex;
+  gap: 45px;
+
+  a {
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+    &:hover {
+      color: #ddd;
+    }
+  }
+ }
+ .nav {
+  display: flex;
+  justify-content: space-between;
+ }
+}
+.dropdown-menu {
+  visibility: hidden;
+  position: relative;
+  transition: 0.5s;
+
+  top: -10px;
+  left: 4px;
+  ul {
+  list-style-type: none;
+
+  }
+}
+.drop {
+  width: 100px;
+  height: 16px;
+  &:hover {
+    .dropdown-menu {
+    visibility: visible;
+    
+    top: 40px;
+    }
+  }
+}
+
+.drop__2 {
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+/* teacher page */
+.teacher {
+  padding: 60px 0 60px 0;
+}
+
+.teacher__img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+  transition: 0.5s;
+  overflow: hidden;
+
+  &:hover {
+    filter: brightness(57%);
+  }
+}
+
+.teacher__wrapper {
+}
+.teacher__title {
+  text-align: center;
+  font-size: 44px;
+}
+.teacher__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding-top: 60px;
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    .teacher__card {
+      margin: 0 auto;
+    }
+  }
+}
+.teacher__card {
+  display: flex;
+  max-width: 650px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(247, 244, 244);
+  border-radius: 10px;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    .teacher__img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+.teacher__card__text {
+  padding: 30px 10px 10px 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  h4 {
+    color: rgb(167, 167, 167);
+  }
+}
+
+.adaptivrotebal {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.card__text {
+  padding-top: 30px;
+  color: rgb(167, 167, 167);
+}
+.teacher__btn {
+  background-color: rgb(40, 238, 40);
+  border: none;
+  padding: 4px 0 4px 0;
+  border-radius: 10px;
+  width: 60%;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+
+}
+
+.teacher__btn__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher__img__div {
+  &:hover {
+    .teacher__btn {
+      transform: translateY(-100px);
+      visibility: visible;  
+      opacity: 1;
+    }
+  }
+}

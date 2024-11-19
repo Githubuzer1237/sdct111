@@ -1,0 +1,189 @@
+
+.header {
+   background-color: #1a0134;
+   color: #fff;
+   padding: 30px 0;
+   text-align: center;
+ }
+ .container {
+   display: flex;
+   align-items: center;
+   gap: 53px;
+   width: 100%;
+ }
+ 
+ .container-title {
+   margin-left: 2%;
+ }
+ /* Контейнер для кнопки и меню */
+ .menu-container {
+   position: absolute;
+   top: 45px; /* Опускаем гамбургер вниз */
+   right: 35px;
+   position: fixed; /* Передвигаем гамбургер вправо */
+ }
+ 
+ /* Кнопка гамбургер */
+ .menu-btn {
+   position: relative;
+   width: 35px;
+   height: 30px;
+   cursor: pointer;
+ }
+ 
+ .menu-btn-burger {
+   width: 35px;
+   height: 4px;
+   background-color: white;
+   border-radius: 5px;
+   transition: all 0.3s ease-in-out;
+ }
+ 
+ .menu-btn-burger::before,
+ .menu-btn-burger::after {
+   content: '';
+   position: absolute;
+   width: 35px;
+   height: 4px;
+   background-color: white;
+   border-radius: 5px;
+   transition: all 0.3s ease-in-out;
+ }
+ 
+ .menu-btn-burger::before {
+   transform: translateY(-10px);
+ }
+ 
+ .menu-btn-burger::after {
+   transform: translateY(10px);
+ }
+ 
+ /* Меню */
+ .menu {
+   opacity: 0;
+   max-height: 0;
+   overflow: hidden;
+   position: absolute;
+   right: 0;
+   top: 50px; /* Расположение под гамбургером */
+   background-color: white;
+   width: 200px;
+   box-shadow: 0 8px 16px rgba(134, 134, 134, 0.2);
+   transform: translateX(-20px);
+   transition: all 0.5s ease;
+ }
+ 
+ .menu.active {
+   opacity: 1;
+   max-height: 500px; /* Нужная вам высота */
+   transform: translateX(0);
+ }
+ 
+ /* Стили для списка меню */
+ .menu ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+ }
+ 
+ .menu ul li {
+   border-bottom: 1px solid #ddd;
+ }
+ 
+ .menu ul li a {
+   display: block;
+   padding: 10px;
+   color: black;
+   text-decoration: none;
+ }
+ 
+ .menu ul li a:hover {
+   background-color: #f0f0f0;
+ }
+ 
+ .dropdown-menu {
+   display: none;
+   left: 100%; /* Расположение подменю справа от родительского элемента */
+   top: 0;
+   background-color: #f9f9f9;
+   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+   z-index: 1;
+ }
+ 
+ .dropdown-menu ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+ }
+ 
+ .dropdown-menu ul li a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+ }
+ 
+ .dropdown-menu ul li a:hover {
+   background-color: #ddd;
+ }
+ 
+ /* Показываем выпадающее меню при наведении */
+ .menu ul li:hover .dropdown-menu {
+   display: block;
+ }
+ 
+ /* Анимации открытия */
+ .menu-container.open .menu {
+   opacity: 1;
+   max-height: 500px;
+   transform: translateY(0);
+ }
+ 
+ /* Анимация гамбургер-иконки в крестик */
+ .menu-container.open .menu-btn-burger {
+   transform: rotate(45deg);
+ }
+ 
+ .menu-container.open .menu-btn-burger::before {
+   transform: rotate(-90deg) translateX(-10px);
+ }
+ 
+ .menu-container.open .menu-btn-burger::after {
+   transform: rotate(-90deg) translateX(-10px);
+   opacity: 0;
+ }
+ 
+ nav ul {
+   list-style-type: none;
+   padding: 10px;
+ }
+ 
+ nav ul li {
+   display: inline;
+   margin-right: 1rem;
+ }
+ 
+ nav ul li a {
+   color: #fff;
+   text-decoration: none;
+ }
+ 
+ nav ul {
+   list-style: none;
+   padding: 0;
+ }
+ 
+ nav ul li {
+   display: inline;
+   margin-right: 10px;
+ }
+ 
+ nav ul li a {
+   color: white;
+   text-decoration: none;
+ }
+ 
+ .menu-icon {
+   font-size: 24px;
+   cursor: pointer;
+ }
